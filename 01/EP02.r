@@ -27,7 +27,7 @@ rm(list = ls()) #clear
 data <- read.csv2("C:/Users/jgonzalez/Downloads/EP02-Datos.csv")
 
 
-#¿Tienen hombres y mujeres ingresos similares en la RM?
+#¿Tienen hombres y mujeres ingresos similares en la RM? Aca creo que es mejor usar un ggboxplot, ya que se compara una variable numerica y otra categorica.
 dt <- data %>% filter( region == "Región Metropolitana de Santiago") 
 dt <- dt %>% select( sexo, ytot  )  
 
@@ -42,7 +42,7 @@ ocupacional <- ocupacional %>%   group_by(zona) %>% summarise(cantidad = n())
 ggplot(data = ocupacional, aes(x = zona, y = cantidad ) ) + geom_bar(stat = "identity", color = "red")
 
 
-#¿Van los ingresos de las mujeres de la RM incrementándose con la edad?
+#¿Van los ingresos de las mujeres de la RM incrementándose con la edad? Creo que aqui es mejor usar un grafico de dispersion (ggscatter), ya que se estan comparando dos variables numericas
 incremento <- data %>% filter(region == "Región Metropolitana de Santiago", sexo == "Mujer" )
 incremento <- incremento %>% select( edad, ytot ) %>% arrange( edad ) 
 ggplot(data = incremento, aes(x = edad , y = ytot ) ) + geom_bar(stat = "identity", color = "red")

@@ -58,7 +58,7 @@ cat("Intervalo de confianza = (-Inf, ", superior, "]\n", sep = "")
 prueba <- t.test(oriental,              #Muestra
                  alternative = "less",  #Tipo de prueba: "two.sided" (bilateral), "greater" (unilateral, media mayor al valor nulo), "less" (unilateral, media manor al valor nulo) 
                  mu = valor_nulo,       #mu = valor nulo
-                 conf.leve = 0.95)   #nivel de confianza
+                 conf.leve = 1-alpha)   #nivel de confianza
 
 print(prueba)
 

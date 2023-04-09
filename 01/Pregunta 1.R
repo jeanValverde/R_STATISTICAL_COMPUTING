@@ -65,7 +65,7 @@ print(prueba)
 
 cat("Conclusiones \n")
 cat("El valor p al ser mayor que el nivel de significacion alpha ", p,">", alpha, ". Por tanto no hay suficiente evidencia para rechazar la hipotesis nula.")
-cat("Sin embargo, la prueba t, nos proporciona un error de tipo I, donde se rechaza la hipotesis nula, cuando en realidad es verdadera")
+
 
 
 

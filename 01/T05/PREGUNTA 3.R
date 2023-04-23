@@ -22,15 +22,11 @@ poder <- sapply(mu, function(m) power.t.test(n = n,
 
 #Creo una data frame que contenga los poderes y las medias respectivas
 datos <- data.frame(mu = mu, poder = poder)
+    
+# Gráfico del poder estadístico
+plot(mu, poder, type = "l", xlab = "Media poblacional", ylab = "Potencia",   main = "Gráfico del poder estadístico") 
 
 
-g <- ggplot(datos, aes(x = mu, y = poder)) +
-     geom_line() +
-     geom_vline(xintercept = c(10, 10.5), linetype = "dashed") +
-     labs(x = "Media poblacional", y = "Poder estadístico") +
-     theme_minimal()
-
-print(g)
 
 
 

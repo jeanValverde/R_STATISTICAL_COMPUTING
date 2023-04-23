@@ -19,15 +19,6 @@ poder <- sapply(mu, function(m) power.t.test(n = n,
                                              power = NULL, 
                                              type = "one.sample",
                                              alternative = "two.sided")$power)
-
-#Creo una data frame que contenga los poderes y las medias respectivas
-datos <- data.frame(mu = mu, poder = poder)
     
 # Gráfico del poder estadístico
 plot(mu, poder, type = "l", xlab = "Media poblacional", ylab = "Potencia",   main = "Gráfico del poder estadístico") 
-
-
-
-
-
-

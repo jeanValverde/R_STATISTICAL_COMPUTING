@@ -24,7 +24,7 @@ mu0 <- 10                     #Media de la hipotesis nula
 media <- 10.3                 #Media de la muestra.
 alfa <- 0.05
 SE <- sigma/sqrt(n) 
- 
+
 # Calculo pnorm
 p <- pnorm(media,
            mean = mu0, 
@@ -35,3 +35,34 @@ p <- pnorm(media,
 cat("La probabilidad de alfa es: ",p*100,"%\n")
 
 #Por lo tanto la probabilidad de cometer un error de tipo 1, es de 0.135% aproximadamente.
+
+
+
+
+#Pregunta 2
+#Si el verdadero volumen medio de los bidones fuera de 10,2 litros,
+#¿cuál sería la probabilidad de que el ingeniero, que obviamente no conoce este dato, cometa un error de tipo II?
+
+#Formulo Hipotesis:
+#H0: El verdadero volumen medio de los bidones es de 10,2 litros.
+#HA: El verdadero volumen medio de los bidones es distinto de 10,2.
+
+
+media <- 10.2
+
+#aplicamos la power.t.test, con valor a buscar power.
+cat("Calculo el poder:")
+power <- power.t.test(n = n,
+                      delta = media-mu0,
+                      sd = sigma,
+                      sig.level = alfa,
+                      power = NULL,
+                      type = "two.sample",
+                      alternative = "two.sided")$power
+
+print(power)
+
+beta <- 1-power
+print(beta)
+
+cat("El porcentaje de cometer un error de tipo 2 es:",beta*100,"%")
